@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Task</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <h2 class="mb-4">Create Task</h2>
+        <form method="post" action="{% url 'create_task' %}" class="col-md-6">
+            {% csrf_token %}
+            <div class="form-group">
+                <label>Task Name:</label>
+                {{ form.name }}
+            </div>
+            <div class="form-group">
+            <label for="id_description">Description:</label>
+            <textarea id="id_description" name="description" class="form-control">{{ form.description }}</textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Create Task</button>
+        </form>
+    </div>
+</body>
+</html>

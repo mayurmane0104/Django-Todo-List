@@ -1,0 +1,32 @@
+<!-- todo_app/templates/todo_app/update_task.html -->
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Task</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body class="bg-light">
+    <div style="margin-top: 50px; margin-left: 20px;">
+        <h2>Update Task</h2>
+        <form method="post" action="{% url 'update_task' task.id %}" style="width: 300px;">
+            {% csrf_token %}
+            <div style="margin-bottom: 10px;">
+                <label>Task Name:</label>
+                {{ form.name }}
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label>Description:</label>
+                {{ form.description }}
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label>Due Date:</label>
+                {{ form.due_date }}
+            </div>
+            <button type="submit">Update Task</button>
+        </form>
+    </div>
+</body>
+</html>

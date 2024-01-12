@@ -1,0 +1,22 @@
+<!-- todo_app/templates/todo_app/delete_task.html -->
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Task</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <h2 class="mb-4">Delete Task</h2>
+        <p>Are you sure you want to delete "{{ task.name }}"?</p>
+        <form method="post" action="{% url 'delete_task' task.id %}" class="d-inline">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Delete Task</button>
+        </form>
+        <a href="{% url 'dashboard' %}" class="btn btn-secondary ml-2">Cancel</a>
+    </div>
+</body>
+</html>
